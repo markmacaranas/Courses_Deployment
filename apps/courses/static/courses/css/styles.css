@@ -1,0 +1,47 @@
+body{
+  background: linear-gradient(to top left, #6495ED, gray, #6495ED);
+  height: 100%;
+  width: 100%;
+}
+.topsection{
+  border: 5px solid black;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 25px;
+
+}
+.midsection{
+  border: 5px solid black;
+  width: 650px;
+  text-align: center;
+  margin: auto;
+}
+table{
+  border: 1px solid black;
+  margin: auto;
+}
+tr{
+  border: 1px solid black;
+}
+td{
+  border: 1px solid black;
+}
+td a button{
+  background-color: maroon;
+  color: white;
+  margin-right: 10px;
+}
+th{
+  border: 1px solid black;
+}
+h4{
+  text-decoration: underline;
+}
+.container{
+    text-align: center;
+}
+.remove{
+    background-color: #6495ED;
+}

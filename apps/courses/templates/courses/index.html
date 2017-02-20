@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Course</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'courses/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'courses/css/skeleton.css' %}">
+    <link rel="stylesheet" href="{% static 'courses/css/normalized.css' %}">
+  </head>
+  <body>
+    <div class="topsection">
+      <h4>Add New Course</h4>
+      <form name="" action="/addNew" method="POST">
+        {% csrf_token %}
+        <label for="name">Course Name:</label>
+        <input type="text" name="name" placeholder="Add New Course:">
+        <label for="description">Description:</label>
+        <textarea name="description" rows="8" cols="20" placeholder="Add Description"></textarea>
+        <br />
+        <input class="button-primary" type="submit" name="submit" value="Add Course">
+      </form>
+    </div>
+
+    <div class="midsection">
+      <h4>Courses</h4>
+      <table>
+        <tr>
+          <th>Course Name</th>
+          <th>Description</th>
+          <th>Date Added</th>
+          <th>Actions</th>
+        </tr>
+        {% for course in courses %}
+        <tr>
+            <td>{{course.name}}</td>
+            {% for description in descriptions %}
+                {% if description.course_id == course.id %}
+            <td>{{description.description}}</td>
+                    {% endif %}
+            {% endfor %}
+            <td>{{course.created_at}}</td>
+            <td>
+              <a href="/remove/{{course.id}}"><button class='remove' type="button" name="button" value="Remove">Remove</button></a>
+            </td>
+          {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>
